@@ -1,0 +1,30 @@
+{
+  "name": "riverian",
+  "version": "0.0.0",
+  "authors": [
+    "Robert Stenbom <rost@river.se>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "overrides": {
+    "modernizr": {
+      "main": "./modernizr.js"
+    }
+  },
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "modernizr": "~2.8.3",
+    "bootstrap-sass": "~3.3.5",
+    "froala": "~1.2.8",
+    "bootstrap-tagsinput": "~0.5.0",
+    "bootstrap-multiselect": "~0.9.13",
+    "ladda": "~0.9.8",
+    "scrollReveal.js": "~2.3.2"
+  }
+}

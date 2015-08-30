@@ -1,0 +1,369 @@
+@import "common/_variables";
+
+// Automatically injected Bower dependencies via wiredep (never manually edit this block)
+// bower:scss
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "common/_mixins";
+@import "_overrides";
+
+body {
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+// move to common
+p.note {
+	display: inline-block;
+	color: darken($white, 20%);
+}
+
+.buttons {
+	margin: 20px 0;
+}
+
+// Login page.
+body.login {
+	background-color: $black;
+
+	.login-col {		
+		margin-top: 10%;		
+
+		h2 {
+			color: $white;
+			font-weight: 900;
+		}
+
+		label {
+			color: $contrast;
+			font-weight: 200;
+		}
+
+		input[type="text"], input[type="password"] {
+			background-color: $white;
+		}
+
+		a.btn {
+			width: 100%;
+		}
+	}}
+
+body {
+	background-color: $white;
+}
+
+// Navbar
+.navbar-fixed-top {
+	height: $navbarTopHeight;
+	background-color: #fff;
+	border: none;
+	.container-fluid {
+		padding: 0;
+	}
+	.navbar-brand {
+		width: $sidebarWidth;
+		margin-left: 0 !important; // Override bootstrap...
+		height: $navbarTopHeight;
+		background-color: $contrast;
+		padding: 0 20px;
+		line-height: $navbarTopHeight;
+		color: #fff;
+		transition: all .5s ease-in-out;
+		font-weight: 600;
+		&:hover {
+			background-color: lighten($contrast, 5%);
+			color: #fff;
+		}
+	}
+
+	.navbar-right {
+		margin-right: 0;
+	}
+
+	.navbar-nav {
+		> li {
+			> a {
+				padding: 0 20px;
+				line-height: $navbarTopHeight;
+			}
+		}
+	}
+
+	@include screen-xs-max {
+		background-color: $contrast;
+	}
+}
+
+// Main wrapper
+#wrapper {
+    padding-left: 0;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: $sidebarWidth;
+    width: 0;
+    height: 100%;
+    margin-left: -$sidebarWidth;
+    overflow-y: auto;
+    background: $black;
+    transition: all 0.5s ease;
+    top: $navbarTopHeight;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: $sidebarWidth;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+    margin-top: $navbarTopHeight;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -$sidebarWidth;
+}
+
+//
+// Sidebar
+//
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: $sidebarWidth;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li:first-child {
+	margin-top: 45px;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+	font-size: 1em;
+    display: block;
+    text-decoration: none;
+    color: lighten($black, 15%);
+    padding: 8px 0;
+    font-weight: 300;
+    transition: all .5s ease-in-out;
+
+    &.active {
+    	color: #fff;
+    }
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 1.25em;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: $sidebarWidth;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: $sidebarWidth;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+a {
+	color: $dark;
+}
+
+// 
+// Ground styling for component 
+//
+component {
+	display: inline-block;
+	background-color: #fff;
+	box-shadow: 0px 2px 3px rgba(0,0,0, 0.1);
+	border-radius: 3px;
+
+	&.transp { background-color: transparent; box-shadow: none; }
+}
+
+.card {
+	box-shadow: 0px 2px 3px rgba(0,0,0, 0.1);
+	background-color: #fff;
+
+	&.card-black {
+		background-color: $black;
+	}
+}
+
+//
+// Tables
+//
+.table {
+	> tbody {
+		> tr {
+			> td {
+				padding: 15px 8px;
+
+				a {					
+					i {
+						color: #ADADAD;
+						transition: all .3s ease-in-out;
+					}
+					&:hover i { color: $dark; }
+				}
+			}
+		}
+	}	
+}
+
+
+
+
+// 
+// Posts
+//
+
+	// List page
+	.search-wrap {
+		margin: 20px 0 0 0;		
+		.input-group-addon {
+			background-color: $white;
+			border: none;
+		}
+		input {
+			background: $white;
+			border: none;
+			box-shadow: none;
+		}
+	}
+
+	.pagination {
+		margin: 0 0 15px 0;
+	}
+
+	.select-actions-row {
+		//background-color: $black;
+		padding: 10px 0;
+		margin-top: 5px; margin-bottom: 15px;
+		.select-actions {		
+			select.form-control {
+				width: 180px;
+				background-color: $white;
+				border: none;
+			}
+		}
+	}
+
+	// New page
+	component[name="posts-new"] {
+
+		p.note {
+			margin: 25px 0;			
+		}
+
+		form {
+			margin: 30px 0;
+			
+			.froala-wrapper {
+				min-height: 250px;	
+			}						
+
+			input[name="title"] {
+			    font-size: 34px;
+			    border: none;
+			    box-shadow: none;
+			    padding: 10px 0;
+			    height: 60px;
+			    font-weight: 600;
+			    color: $black;						
+			}
+		}
+
+		.tags {
+			i {
+				font-size: 20px;
+				position: relative;
+				bottom: -5px;
+				color: $white;				
+			}	
+		}
+		
+
+		.bootstrap-tagsinput {
+			background-color: transparent;
+			border: none;
+			box-shadow: none;
+			border-radius: 0;
+
+			.tag {
+				color: $white;
+				font-size: 12px;
+				padding: 8px;
+				font-weight: 200;				
+			}
+
+			input {
+				background-color: transparent;	
+				color: $white;
+				font-size: 12px;
+				font-weight: 200;		
+			}
+
+
+			@include placeholder {
+				color: $white;				
+			}			
+		}		
+	}

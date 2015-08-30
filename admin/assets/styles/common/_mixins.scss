@@ -1,0 +1,36 @@
+@mixin screen-md-max {
+  @media only screen and (max-width: $screen-md-max) {
+    @content;
+  }
+}
+
+@mixin screen-sm-max {
+  @media only screen and (max-width: $screen-sm-max) {
+    @content;
+  }
+}
+
+@mixin screen-xs-max {
+  @media only screen and (max-width: $screen-xs-max) {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder { 
+    @content;
+  }  
+
+  :-moz-placeholder {
+    @content;
+  } 
+
+  ::-moz-placeholder {
+    @content;
+  } 
+
+  :-ms-input-placeholder {
+    @content;
+  }
+
+}

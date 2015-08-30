@@ -1,0 +1,20 @@
+a {
+	color: $dark;
+}
+
+.label-primary {
+	background-color: $dark;
+}
+
+.label-info {
+    background-color: #3B4D60;
+}
+
+.pagination>li>a {
+	border: none;
+	transition: all .4s ease-in-out;
+	&:hover {
+		background-color: $dark;
+		color: #fff;
+	}	
+}

@@ -1,0 +1,7 @@
+var dotenv = require('dotenv');
+
+dotenv.load();
+
+module.exports = {
+	'url': "mysql://"+process.env.MYSQL_USER+":"+process.env.MYSQL_PASS+"@"+process.env.MYSQL_HOST+"/"+process.env.MYSQL_DB
+}
