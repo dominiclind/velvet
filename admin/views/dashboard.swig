@@ -1,4 +1,4 @@
-{% extends 'layouts/main.html' %}
+{% extends 'layouts/main.swig' %}
 
 {% block content %}
 	<div class="container-fluid" id="notifications">		
