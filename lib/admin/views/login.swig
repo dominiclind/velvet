@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>{% block title %}Riverian{% endblock %}</title> 
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  {% include "./partials/head.swig" %} 
+  {% include "/admin/partials/head" %} 
 </head>
 <body class="login">
   <div class="container">

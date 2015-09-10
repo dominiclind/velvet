@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>{% block title %}Riverian{% endblock %}</title> 
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  {% include "../partials/head.swig" %} 
+  {% include "/admin/partials/head" %} 
 </head>
 <body class="{{bodyClasses}}">
   	<div id="wrapper">
@@ -31,31 +31,7 @@
 		<!-- /#navbar -->
 
 	    <!-- Sidebar -->
-	    <div id="sidebar-wrapper">
-	        <ul class="sidebar-nav">
-	            <li>
-	                <a href="#">Dashboard</a>
-	            </li>
-	            <li>
-	                <a href="#">Shortcuts</a>
-	            </li>
-	            <li>
-	                <a href="#">Overview</a>
-	            </li>
-	            <li>
-	                <a href="#">Events</a>
-	            </li>
-	            <li>
-	                <a href="#">About</a>
-	            </li>
-	            <li>
-	                <a href="#">Services</a>
-	            </li>
-	            <li>
-	                <a href="#">Contact</a>
-	            </li>
-	        </ul>
-	    </div>
+	    {% include '/admin/partials/sidebar' %}
 	    <!-- /#sidebar-wrapper -->
 
 	    <!-- Page Content -->

@@ -1,7 +1,9 @@
-{% extends 'layouts/main.swig' %}
+{% extends '/admin/layouts/main' %}
+
 
 {% block content %}
 	<div class="container-fluid" id="notifications">		
+		{{ menu('admin') }}
 		{% for error in messages.errors %}
 			<div class="alert alert-danger" role="alert">
 				{{ error }}
@@ -56,8 +58,8 @@
 								
 								<td><a href="#" class="label label-primary">Category</a></td>
 								<td>{% for tag in post.tags %} <a href="#" class="label label-primary">{{tag.name}}</a> {% endfor %}</td>			
-								<td><a href="/admin/posts/edit/{{post.id}}"><i class="icon ion-edit"></i></a></td>
-								<td><a href="/admin/posts/delete/{{post.id}}"><i class="icon ion-trash-b"></i></a></td>
+								<td><a href="/admin/blog/post/edit/{{post.id}}"><i class="icon ion-edit"></i></a></td>
+								<td><a href="/admin/blog/post/delete/{{post.id}}"><i class="icon ion-trash-b"></i></a></td>
 						    </tr>
 					    {% endfor %}
 					    <!--<tr>					      
