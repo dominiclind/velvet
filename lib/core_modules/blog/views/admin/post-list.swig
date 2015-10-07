@@ -21,8 +21,8 @@
           <tbody>
 					  	{% for post in posts %}
 						    <tr>
-  								<td>{{ post.title }}&nbsp;<span class="label label-success">New</span></td>
-  								<td><a href="#">{{ post.author.firstname }} {{ post.author.lastname }}</a></td>
+  								<td>{{ post.title }}</td>
+  								<td><a href="#">{{ post.author.username }}</a></td>
   								<td>cat, another one</td>
   								<td>{% for tag in post.tags %} <a href="#" class="label label-primary">{{tag.name}}</a> {% endfor %}</td>
   								<td><a href="/admin/blog/post/edit/{{post.id}}"><i class="icon ion-edit"></i></a></td>

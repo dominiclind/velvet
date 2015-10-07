@@ -7,7 +7,6 @@
 @import "../../bower_components/sassy-maps/sass/_sassy-maps.scss";
 @import "../../bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
 // endbower
-
 @import "common/_mixins";
 @import "_layout";
 @import "_forms";
@@ -55,8 +54,8 @@ body {
 body.distraction-free {
 	background-color: #fff;
 
-	#wrapper > .container > nav.top,
-	#wrapper > .container-center > nav.top {
+	#wrapper > .container nav.top,
+	#wrapper > .container-center  nav.top {
 		height: $navbarTopHeight;
 		line-height: $navbarTopHeight;
 		border-bottom: 1px solid $color1;
@@ -73,40 +72,21 @@ body.distraction-free {
 			margin-right: 20px;
 		}
 
-		.right a {
+		.right a, .right input {
+			border: none;
+			background: none;
 			margin: 0 5px;
-			padding: 10px 15px;
 			color: #888;
 			text-decoration: none;
 			font-size: 0.8em;
-			border: 1px solid $color1;
-			border-radius: 30px;
 			color: $color2;
-			border-color: $color2;
-			background-color: rgba($color2, 0);
-			transition: all ease-in .5s;
-			&:hover {
-				background-color: rgba($color2, 1);
-				color: #fff;
-			}
+
 			&.danger {
 				color: $danger;
-				border-color: $danger;
-				background-color: rgba($danger, 0);
-				&:hover {
-					color: #fff;
-					background-color: rgba($danger, 1);
-				}
 			}
 
 			&.primary {
 				color: #70C941;
-				border-color: #70C941;
-				background-color: rgba(#70C941, 0);
-				&:hover {
-					color: #fff;
-					background-color: rgba(#70C941, 1);
-				}
 			}
 		}
 	}
@@ -152,6 +132,27 @@ body.distraction-free {
 		height: 45px !important;
 	}
 
+}
+
+/** editor */
+.editor {
+	margin-left: 5px;
+	blockquote {
+		background: #f9f9f9;
+		border-left: 10px solid $color2;
+		margin: 0;
+		padding: 10px 0 10px 10px;
+		font-style: italic;
+		quotes: "\201C""\201D""\2018""\2019";
+	}
+	blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
 }
 
 /** icons */

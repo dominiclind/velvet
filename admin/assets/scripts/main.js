@@ -8,19 +8,18 @@ $(document).ready(function () {
 	// 	$(this).editable({inlineMode: inline});
 	// });
 
-	if (document.getElementById('dante-editor')) {
-		var editor = new Dante.Editor({
-	        el: "#dante-editor",
-	        upload_url: "/images.json", //it expect an url string in response like /your/server/image.jpg or http://app.com/images/image.jpg
-	        store_url: "/save" //post to save
-	  });
-		editor.start();
+	var elements = document.querySelectorAll('.editor'),
+	    editor = new MediumEditor(elements);
 
-		console.log("here...");
-	}
+
+
+	$('.submit-form').click(function (ev) {
+		ev.preventDefault();
+		var $form = $($(this).attr('data-form'));
+		$form.submit();
+	});
+
 	$('input[data-role="tags"]').tagsInput();
-
-
 	var l = Ladda.bind( '[role="submit"]' );
 
 	$('.sidebar-nav .toggle-dropdown').click(function (e) {
