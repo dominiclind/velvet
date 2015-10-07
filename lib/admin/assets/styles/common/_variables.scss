@@ -1,16 +1,29 @@
+// Breakpoints
+$ltmobile: (min-width 400px);
+$ltphablet: (min-width 550px);
+$lttablet: (min-width 750px);
+$ltdesktop: (min-width 1000px);
+$ltdesktophd: (min-width 1200px);
+$columns: 12;
+$mobileNavbarHeight: 60px;
+
 //
 // Colors
 //
-$black: #2C3E50;
-$white: #ECF0F1;
-$contrast: #E74C3C;
-$light: #3498DB;
-$dark: #2980B9;
+$color0: #fff;
+$color1: #f5f5f5;
+$color2: #9A53FF;
+$color5: #363636;
+$color6: #2b303b;
+$danger: #FF5353;
 
 //
 // Layout
 //
-	// Navbar
-	$navbarTopHeight: 65px;
-	// Sidebar
-	$sidebarWidth: 250px;
+// Navbar
+$navbarTopHeight: 45px;
+// Sidebar
+$sidebarWidth: 240px;
+$brandHeight: 45px;
+// Content
+$contentIndent: 20px;

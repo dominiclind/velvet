@@ -1,386 +1,165 @@
-@import "common/_variables";
+@import "../../bower_components/normalize.css/normalize.css";
 
+@import "common/_variables";
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../../bower_components/susy/sass/_susy.scss";
+@import "../../bower_components/sassy-maps/sass/_sassy-maps.scss";
+@import "../../bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
 // endbower
 
 @import "common/_mixins";
-@import "_overrides";
+@import "_layout";
+@import "_forms";
+@import "_buttons";
+
 
 body {
-	font-family: Roboto, Helvetica, Arial, sans-serif;
-}
-
-// move to common
-p.note {
-	display: inline-block;
-	color: darken($white, 20%);
-}
-
-.buttons {
-	margin: 20px 0;
-}
-
-// Login page.
-body.login {
-	background-color: $black;
-
-	.login-col {		
-		margin-top: 10%;		
-
-		h2 {
-			color: $white;
-			font-weight: 900;
-		}
-
-		label {
-			color: $contrast;
-			font-weight: 200;
-		}
-
-		input[type="text"], input[type="password"] {
-			background-color: $white;
-		}
-
-		a.btn {
-			width: 100%;
-		}
-	}}
-
-body {
-	background-color: $white;
-}
-
-// Navbar
-.navbar-fixed-top {
-	height: $navbarTopHeight;
-	background-color: #fff;
-	border: none;
-	.container-fluid {
-		padding: 0;
-	}
-	
-	.navbar-brand {
-		width: $sidebarWidth;
-		margin-left: 0 !important; // Override bootstrap...
-		height: $navbarTopHeight;
-		background-color: $contrast;
-		padding: 0 20px;
-		line-height: $navbarTopHeight;
-		color: #fff;
-		transition: all .5s ease-in-out;
-		font-weight: 600;
-		&:hover {
-			background-color: lighten($contrast, 5%);
-			color: #fff;
-		}
-	}
-
-	.navbar-right {
-		margin-right: 0;
-	}
-
-	.navbar-nav {
-		> li {
-			> a {
-				padding: 0 20px;
-				line-height: $navbarTopHeight;
-			}
-		}
-	}
-
-	@include screen-xs-max {
-		background-color: $contrast;
-	}
-}
-
-// Main wrapper
-#wrapper {
-    padding-left: 0;
-    transition: all 0.5s ease;
-}
-
-#wrapper.toggled {
-    padding-left: 250px;
-}
-
-#sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: $sidebarWidth;
-    width: 0;
-    height: 100%;
-    margin-left: -$sidebarWidth;
-    overflow-y: auto;
-    background: $black;
-    transition: all 0.5s ease;
-    top: $navbarTopHeight;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-    width: $sidebarWidth;
-}
-
-#page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
-    margin-top: $navbarTopHeight;
-}
-
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -$sidebarWidth;
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+	background-color: $color1;
+	margin: 0;
 }
 
 //
-// Sidebar
+// Mobile first approach to styling. Everything without media queries
+// is applied to mobile.
 //
-.sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: $sidebarWidth;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.sidebar-nav ul {
-	padding: 0;
-	list-style: none;
-	li {
-		text-indent: 25px;
-	}
-	li.menu-name {		
-		text-indent: 15px;	
-		padding: 0;
-		font-weight: 600;
-	}
-	li.menu-name, li a {
-		color: #fff;
-	}	
-}
-
-.sidebar-nav li:first-child {
-	margin-top: 45px;
-}
-
-.sidebar-nav li {
-    text-indent: 10px;
-    line-height: 25px;
-}
-
-.sidebar-nav li a {
-	font-size: 1em;
-    display: block;
-    text-decoration: none;
-    color: lighten($black, 15%);
-    padding: 8px 0;
-    font-weight: 300;
-    transition: all .5s ease-in-out;
-
-    &.active {
-    	color: #fff;
-    }
-}
-
-.sidebar-nav li a:hover {
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
-}
-
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
-}
-
-.sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 1.25em;
-    line-height: 60px;
-}
-
-.sidebar-nav > .sidebar-brand a {
-    color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
-    background: none;
-}
-
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: $sidebarWidth;
-    }
-
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-
-    #sidebar-wrapper {
-        width: $sidebarWidth;
-    }
-
-    #wrapper.toggled #sidebar-wrapper {
-        width: 0;
-    }
-
-    #page-content-wrapper {
-        padding: 20px;
-        position: relative;
-    }
-
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
-}
-
-a {
-	color: $dark;
-}
-
-// 
-// Ground styling for component 
+// Usage:
+// @include breakpoint($ltmobile) { ... } // larger than mobile
+// @include breakpoint($ltphablet) { ... } // larger than phablet
+// @include breakpoint($lttablet) { ... } // larger than tablet
+// @include breakpoint($ltdesktop) { ... } // larger than desktop
+// @include breakpoint($ltdesktophd) { ... } // larger than desktop hd
 //
-component {
-	display: inline-block;
-	background-color: #fff;
-	box-shadow: 0px 2px 3px rgba(0,0,0, 0.1);
-	border-radius: 3px;
-
-	&.transp { background-color: transparent; box-shadow: none; }
-}
 
 .card {
-	box-shadow: 0px 2px 3px rgba(0,0,0, 0.1);
-	background-color: #fff;
+	background-color: $color0;
+}
 
-	&.card-black {
-		background-color: $black;
+.card-header {
+	background-color: $color2;
+	h1,h2,h3,h4,h5,h6 {
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 300;
+		font-size: 16px;
 	}
 }
 
-//
-// Tables
-//
-.table {
-	> tbody {
-		> tr {
-			> td {
-				padding: 15px 8px;
 
-				a {					
-					i {
-						color: #ADADAD;
-						transition: all .3s ease-in-out;
-					}
-					&:hover i { color: $dark; }
+/**
+	distraction free
+	@todo inject sass as module
+*/
+
+body.distraction-free {
+	background-color: #fff;
+
+	#wrapper > .container > nav.top,
+	#wrapper > .container-center > nav.top {
+		height: $navbarTopHeight;
+		line-height: $navbarTopHeight;
+		border-bottom: 1px solid $color1;
+		.brand {
+			color: #000;
+			margin: 0 20px;
+			display: inline-block;
+			float: left;
+		}
+
+		.right {
+			display: inline-block;
+			float: right;
+			margin-right: 20px;
+		}
+
+		.right a {
+			margin: 0 5px;
+			padding: 10px 15px;
+			color: #888;
+			text-decoration: none;
+			font-size: 0.8em;
+			border: 1px solid $color1;
+			border-radius: 30px;
+			color: $color2;
+			border-color: $color2;
+			background-color: rgba($color2, 0);
+			transition: all ease-in .5s;
+			&:hover {
+				background-color: rgba($color2, 1);
+				color: #fff;
+			}
+			&.danger {
+				color: $danger;
+				border-color: $danger;
+				background-color: rgba($danger, 0);
+				&:hover {
+					color: #fff;
+					background-color: rgba($danger, 1);
+				}
+			}
+
+			&.primary {
+				color: #70C941;
+				border-color: #70C941;
+				background-color: rgba(#70C941, 0);
+				&:hover {
+					color: #fff;
+					background-color: rgba(#70C941, 1);
 				}
 			}
 		}
-	}	
+	}
+
+	.blog-edit {
+		width: 70%;
+		max-width: 70%;
+		margin: 80px 15%;
+
+		textarea[name="title"] {
+			font-size: 3.5em;
+			border: none;
+			&:focus {
+				outline: none;
+			}
+		}
+
+		textarea {
+			resize: none;
+		}
+
+		.froala-box {
+			margin: 15px 0 0 10px,
+		}
+
+
+	}
+
+	nav.fixed-bottom {
+		position: fixed;
+		bottom: 0;
+		min-height: 45px;
+		height: auto;
+		width: 100%;
+		border-top: 1px solid $color1;
+	}
+
+	.tagsinput {
+		padding-top: 10px;
+		border: none;
+		width: 70% !important;
+		min-height: 45px !important;
+		height: 45px !important;
+	}
+
 }
 
+/** icons */
 
+.ion-edit {
+	color: #FFB200;
+}
 
-
-// 
-// Posts
-//
-
-	// List page
-	.search-wrap {
-		margin: 20px 0 0 0;		
-		.input-group-addon {
-			background-color: $white;
-			border: none;
-		}
-		input {
-			background: $white;
-			border: none;
-			box-shadow: none;
-		}
-	}
-
-	.pagination {
-		margin: 0 0 15px 0;
-	}
-
-	.select-actions-row {
-		//background-color: $black;
-		padding: 10px 0;
-		margin-top: 5px; margin-bottom: 15px;
-		.select-actions {		
-			select.form-control {
-				width: 180px;
-				background-color: $white;
-				border: none;
-			}
-		}
-	}
-
-	// New page
-	component[name="posts-new"] {
-
-		p.note {
-			margin: 25px 0;			
-		}
-
-		form {
-			margin: 30px 0;
-			
-			.froala-wrapper {
-				min-height: 250px;	
-			}						
-
-			input[name="title"] {
-			    font-size: 34px;
-			    border: none;
-			    box-shadow: none;
-			    padding: 10px 0;
-			    height: 60px;
-			    font-weight: 600;
-			    color: $black;						
-			}
-		}
-
-		.tags {
-			i {
-				font-size: 20px;
-				position: relative;
-				bottom: -5px;
-				color: $white;				
-			}	
-		}
-		
-
-		.bootstrap-tagsinput {
-			background-color: transparent;
-			border: none;
-			box-shadow: none;
-			border-radius: 0;
-
-			.tag {
-				color: $white;
-				font-size: 12px;
-				padding: 8px;
-				font-weight: 200;				
-			}
-
-			input {
-				background-color: transparent;	
-				color: $white;
-				font-size: 12px;
-				font-weight: 200;		
-			}
-
-
-			@include placeholder {
-				color: $white;				
-			}			
-		}		
-	}
+.ion-trash, .ion-trash-b {
+	color: #ff4500;
+}

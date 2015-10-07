@@ -2,33 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}Riverian{% endblock %}</title> 
+  <title>{% block title %}Riverian{% endblock %}</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  {% include "/admin/partials/head" %} 
+  {% include "/admin/partials/head" %}
 </head>
-<body class="{{bodyClasses}}">
+<body class="{{bodyClasses}} sidebar-visible">
   	<div id="wrapper">
-		<nav class="navbar navbar-default navbar-fixed-top">
-		  <div class="container-fluid">
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <span class="navbar-brand">r<i class="ion-flash"></i>verian</span>
-		    </div>
-		    <div id="navbar" class="navbar-collapse collapse">		      
-		      <ul class="nav navbar-nav navbar-right">
-		        <!--<li><a href="../navbar/">Default</a></li>
-		        <li><a href="../navbar-static-top/">Static top</a></li>
-		        <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>-->
-		      </ul>
-		    </div><!--/.nav-collapse -->
-		  </div>
-		</nav>
-		<!-- /#navbar -->
 
 	    <!-- Sidebar -->
 	    {% include '/admin/partials/sidebar' %}
@@ -36,8 +15,18 @@
 
 	    <!-- Page Content -->
 	    <div id="page-content-wrapper">
+        {% include '/admin/partials/navbar-top' %}
+        <div class="container-center">
+          <div class="container-fluid" id="notifications">
+            {% for error in messages.errors %}
+              <div class="alert alert-danger" role="alert">
+                {{ error }}
+              </div>
+            {% endfor %}
+          </div>
 	        {% block content %}
 	        {% endblock %}
+        </div>
 	    </div>
 	    <!-- /#page-content-wrapper -->
 

@@ -5,7 +5,7 @@
         "scripts/main.js"
       ],
       "main": true
-    },    
+    },
     "main.css": {
       "files": [
         "styles/main.scss"
@@ -17,9 +17,9 @@
     },
     "modernizr.js": {
       "bower": ["modernizr"]
-    }              
+    }
   },
   "config": {
-    "devUrl": "http://localhost:3005"
-  } 
+    "devUrl": "http://localhost:3000"
+  }
 }

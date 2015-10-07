@@ -1,0 +1,41 @@
+.form {
+  .form-group {
+    margin-bottom: 15px;
+  }
+}
+
+.form-stacked {
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    font-size: 1em;
+    width: 100%;
+    padding: 10px;
+  }
+
+  label {
+    color: lighten($color5, 30%);
+    display: block;
+    font-size: .65em;
+    margin-bottom: 10px;
+  }
+}
+
+
+/**
+ States
+ */
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  outline: 2px solid rgba($color2, 0);
+  transition: outline .5s ease-in;
+  outline-offset: -2px;
+  &:focus {
+    box-shadow: none;
+    outline: 2px solid rgba($color2, 1);
+    outline-offset: -2px;
+  }
+}

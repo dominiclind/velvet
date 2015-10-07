@@ -1,5 +1,6 @@
 {
   "execMap": {
-    "js": "iojs" 
-  }
+    "js": "iojs"
+  },
+  "ext": "js swig"
 }
