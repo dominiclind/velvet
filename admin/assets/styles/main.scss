@@ -1,12 +1,5 @@
-@import "../../bower_components/normalize.css/normalize.css";
-
+@import "~medium-editor/dist/css/medium-editor";
 @import "common/_variables";
-// Automatically injected Bower dependencies via wiredep (never manually edit this block)
-// bower:scss
-@import "../../bower_components/susy/sass/_susy.scss";
-@import "../../bower_components/sassy-maps/sass/_sassy-maps.scss";
-@import "../../bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
-// endbower
 @import "common/_mixins";
 @import "_layout";
 @import "_forms";
@@ -163,4 +156,29 @@ body.distraction-free {
 
 .ion-trash, .ion-trash-b {
 	color: #ff4500;
+}
+
+
+/** TIDY UP BELOW */
+
+list-view h3 {
+	margin: 0;
+}
+
+
+
+list-view {
+	position: relative;
+	@include span(4 no-gutters);
+	height: 100vh;
+	background-color: #fff;
+	overflow: hidden;
+	.iscroll {
+		position: absolute;
+	}
+
+	li {
+		list-style: none;
+		padding: 15px;
+	}
 }

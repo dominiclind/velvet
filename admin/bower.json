@@ -23,7 +23,6 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "modernizr": "~2.8.3",
-    "froala": "~1.2.8",
     "ladda": "~0.9.8",
     "scrollReveal.js": "~2.3.2",
     "susy": "~2.2.6",

@@ -15,7 +15,7 @@
 
 	    <!-- Page Content -->
 	    <div id="page-content-wrapper">
-        {% include '/admin/partials/navbar-top' %}
+        <!-- {% include '/admin/partials/navbar-top' %} -->
         <div class="container-center">
           <div class="container-fluid" id="notifications">
             {% for error in messages.errors %}
@@ -32,7 +32,5 @@
 
 	</div>
 	<!-- /#wrapper -->
-	<script src="/admin/static/scripts/jquery.js"></script>
-	<script src="/admin/static/scripts/main.js"></script>
 </body>
 </html>

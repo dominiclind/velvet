@@ -1,25 +1,35 @@
+#!/usr/bin/node
 'use strict';
 const Riverian = require('../lib');
+const webpack = require('webpack');
+const config = require('../config/webpack.development');
+const compiler = webpack(config);
 
 class App extends Riverian {
-	
+
 	constructor (root) {
 		super(root);
 		// Put your own constructor logic here.
-	}		
+	}
 
 };
 const app = new App( process.cwd() );
 
+app.koa.use(require('koa-webpack-dev-middleware')(compiler, {
+  noInfo: false,
+  publicPath: config.output.publicPath
+}));
+
+
 
 //
-// You can't set configuration properties directly 
+// You can't set configuration properties directly
 // but you can use the extendConfiguration method to
 // achieve it, e.g.:
 // 	app.extendConfiguration({ use_proxy: true })
 //
+
 app.setup(app); // This is to so we can store the context safely
 app.start().then(function () {
 	app.koa.listen(3000);
 });
-

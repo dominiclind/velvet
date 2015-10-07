@@ -14,9 +14,9 @@
 
 			<div class="container-center blog-edit">
 				<textarea name="title" placeholder="Title..." class="autogrow">{{post.title}}</textarea>
-				<textarea class="editor" {% if !post.content %} placeholder="Story goes here..." {% endif %} name="content">
-					{{ post.content }}
-				</textarea>
+				<editor name="content">
+					{{ post.content|safe }}
+				</editor>
 			</div>
 
 
