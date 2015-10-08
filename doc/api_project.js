@@ -1,0 +1,1 @@
+define({  "name": "velvet",  "version": "0.1.0",  "description": "Velvet REST API",  "title": "Velvet",  "url": "https://localhost:3000/api",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2015-10-08T19:13:21.497Z",    "url": "http://apidocjs.com",    "version": "0.13.1"  }});

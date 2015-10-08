@@ -32,27 +32,19 @@ require('./styles/main.scss');
 // 		//riot.mount('*');
 // });
 
-const riverian = require('./scripts/riverian.js');
+require("mobservable-react-devtools");
+require('blog/components/blog-app.js');
+
+const velvet = require('velvet-react');
 const React = require('react');
 const ReactDOM = require('react-dom');
 const mobservable = require('mobservable');
 const reactiveComponent = require('mobservable-react').reactiveComponent;
 
-
-
-const ListView = riverian.component('list-view', {
-	render() {
-		return(
-			<h2>Koala</h2>
-		)
-	}
-});
-
-
 if (window.addEventListener) {
-  window.addEventListener('DOMContentLoaded', riverian.run);
+  window.addEventListener('DOMContentLoaded', velvet.run);
 } else {
-  window.attachEvent('onload', riverian.run);
+  window.attachEvent('onload', velvet.run);
 }
 
 

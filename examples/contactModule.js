@@ -23,12 +23,12 @@ var PostModel = {
 	}
 };
 
-class PostModule extends RiverianModule {
+class PostModule extends VelvetModule {
 	
 	constructor() {
 		super(this);
 		// Define models.
-		// Riverian looks for these using models();
+		// Velvet looks for these using models();
 		this.models = {
 			Post: PostModel,
 			Category: PostCategoryModel,
@@ -62,7 +62,7 @@ class PostModule extends RiverianModule {
 	adminRouter(router) {
 		
 
-		router.get('/', riverian.protect, function *() {
+		router.get('/', velvet.protect, function *() {
 			var ctx = this;
 			var Post = this.models.Post;
 			var PostTags = this.models.PostTagModel;	
@@ -85,13 +85,13 @@ class PostModule extends RiverianModule {
 
 		});
 
-		router.get('/new', riverian.protect, function (req, res) {	
+		router.get('/new', velvet.protect, function (req, res) {	
 			res.render('posts-new-edit');
 		});
 
-		router.get('/edit/:id', riverian.protect, function (req, res) {	
+		router.get('/edit/:id', velvet.protect, function (req, res) {	
 
-			var Post = riverian.models.post;
+			var Post = velvet.models.post;
 			Post.findOne()
 				.where({ id: req.params.id })
 				.populate('tags')
@@ -105,11 +105,11 @@ class PostModule extends RiverianModule {
 				});
 		});
 
-		router.post('/edit/:id', riverian.protect, function (req, res) {	
+		router.post('/edit/:id', velvet.protect, function (req, res) {	
 
 			var data = req.body;
-			var Post = riverian.models.post;
-			var PostTags = riverian.models.posttags;
+			var Post = velvet.models.post;
+			var PostTags = velvet.models.posttags;
 			Post.findOne()
 				.where({ id: req.params.id })	
 				.populate('tags')
@@ -121,11 +121,11 @@ class PostModule extends RiverianModule {
 		});
 
 
-		router.post('/new', riverian.protect, function (req, res) {
+		router.post('/new', velvet.protect, function (req, res) {
 
 			var data = req.body;
-			var Post = riverian.models.post;
-			var PostTags = riverian.models.posttags;
+			var Post = velvet.models.post;
+			var PostTags = velvet.models.posttags;
 			
 
 			Post.create({
@@ -150,7 +150,7 @@ class PostModule extends RiverianModule {
 							post.save().then(function () {
 								return res.redirect('/admin/posts');
 							}).catch(function (e) {
-								riverian.logger.error(e);
+								velvet.logger.error(e);
 								req.flash('Something went wrong, contact an administrator.');
 								return res.redirect('/admin/posts');
 							});
@@ -160,8 +160,8 @@ class PostModule extends RiverianModule {
 
 		});
 
-		router.get('/delete/:id', riverian.protect, function (req, res) {
-			var Post = riverian.models.post;
+		router.get('/delete/:id', velvet.protect, function (req, res) {
+			var Post = velvet.models.post;
 			Post.destroy({ id: req.params.id })
 				.then(function() {
 					req.flash('Successfully deleted post.');
@@ -176,4 +176,4 @@ class PostModule extends RiverianModule {
 
 }
 
-riverian.registerPlugin(PostModule, 'postModule');
+velvet.registerPlugin(PostModule, 'postModule');

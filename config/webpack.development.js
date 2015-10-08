@@ -18,6 +18,15 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
+  resolve: {
+    alias: {
+        'velvet-react': path.join(__dirname, '../lib/VelvetReact.js')
+    },
+    modulesDirectories: [
+      'node_modules',
+      path.join(__dirname, '../lib/core_modules')
+    ]
+  },
   module: {
     loaders: [
       {

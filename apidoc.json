@@ -1,0 +1,7 @@
+{
+  "name": "velvet",
+  "version": "0.1.0",
+  "description": "Velvet REST API",
+  "title": "Velvet",
+  "url" : "https://localhost:3000/api"
+}

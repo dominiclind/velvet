@@ -1,8 +1,8 @@
 'use strict';
 
-var Riverian = require('../lib');
+var Velvet = require('../lib');
 
-class App extends Riverian {
+class App extends Velvet {
 
 	constructor (root) {
 		super(root);

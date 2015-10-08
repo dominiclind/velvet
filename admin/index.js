@@ -2,8 +2,8 @@
 const path = require('path');
 const Router = require('koa-router');
 const passport = require('koa-passport');
-const riverian = require('../lib/index');
-const CTX = riverian.CTX();
+const velvet = require('../lib/index');
+const CTX = velvet.CTX();
 const mount = require('koa-mount');
 const serve = require('koa-static');
 

@@ -3,9 +3,7 @@
 
 {% block content %}
     <div class="page-content">
-      <list-view>
-      </list-view>
-      <div class="post-content">
-      </div>
+      <blog-app>
+      </blog-app>
     </div>
 {% endblock %}

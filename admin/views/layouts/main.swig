@@ -18,14 +18,7 @@
       <!-- Page Content -->
       <div id="page-content-wrapper">
         <!-- {% include '/admin/partials/navbar-top' %} -->
-        <div class="container-center">
-          <div class="container-fluid" id="notifications">
-            {% for error in messages.errors %}
-            <div class="alert alert-danger" role="alert">
-              {{ error }}
-            </div>
-            {% endfor %}
-          </div>
+        <div class="container">
           {% block content %} {% endblock %}
         </div>
       </div>

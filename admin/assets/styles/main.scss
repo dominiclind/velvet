@@ -161,26 +161,36 @@ body.distraction-free {
 }
 
 
-/** TIDY UP BELOW */
+/** m*/
 
-list-view h3 {
-	margin: 0;
+blog-app {
+	display: block;
+	@include span(100%)
 }
 
+/** responsive layout sizes */
+blog-app .list-view {
+	@include span(25%);
+	position: fixed;
+  min-height: 100%;
+  background-color: #fff;
+	border-right: 1px solid #eee;
+}
 
-
-list-view {
+blog-app .list-view .list-item {
+	height: 100px;
+  width: 100%;
+  display: block;
+  padding: 15px;
 	position: relative;
-	@include span(4 no-gutters);
-	height: 100vh;
-	background-color: #fff;
-	overflow: hidden;
-	.iscroll {
-		position: absolute;
+	border-bottom: 1px solid #eee;
+	h2 {
+		font-size: 18px;
+		margin: 0;
 	}
-
-	li {
-		list-style: none;
-		padding: 15px;
+	time {
+		position: absolute;
+    bottom: 15px;
+    font-size: 12px;
 	}
 }
