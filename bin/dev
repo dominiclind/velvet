@@ -20,7 +20,7 @@ app.koa.use(require('koa-webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
-
+app.koa.use(require("koa-webpack-hot-middleware")(compiler));
 
 //
 // You can't set configuration properties directly

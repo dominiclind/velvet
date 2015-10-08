@@ -5,7 +5,7 @@ exports = module.exports = riot.tag('list-view', require('./list-view.html'), fu
   this.on('mount', function () {
     const iscroll = new IScroll(this.root, {
       mouseWheel: true,
-      scrollbars: false
+      scrollbars: true
     });
 
     setTimeout(function () {

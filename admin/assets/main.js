@@ -1,34 +1,60 @@
+
 /** sass libraries */
 require('normalize.css');
 require('breakpoint-sass');
+require('./styles/main.scss');
 /** css libraries **/
 /** js libraries */
-const $ = require('jquery');
-const riot = require('riot');
-const MediumEditor = require('medium-editor');
+// const $ = require('jquery');
+// const riot = require('riot');
+// const MediumEditor = require('medium-editor');
+//
+//
+//
+// /** require tags */
+// //require('./tags/list-view.js');
+// //
+// // riot.tag('editor', `
+// // 	<textarea class="editor" name="{ opts.name }">
+// // 		{ content }
+// // 	</textarea>`
+// // , function editor (opts) {
+// //
+// // 	this.content = this.root._innerHTML;
+// // 	this.editor = null;
+// // 	this.on('mount', function () {
+// // 		var textarea = this.root.querySelectorAll('textarea');
+// // 		this.editor = new MediumEditor(textarea);
+// // 	});
+// // });
+//
+// $(document).ready(function () {
+// 		//riot.mount('*');
+// });
 
-require('./styles/main.scss');
+const riverian = require('./scripts/riverian.js');
+const React = require('react');
+const ReactDOM = require('react-dom');
+const mobservable = require('mobservable');
+const reactiveComponent = require('mobservable-react').reactiveComponent;
 
-/** require tags */
-require('./tags/list-view.js');
 
-riot.tag('editor', `
-	<textarea class="editor" name="{ opts.name }">
-		{ content }
-	</textarea>`
-, function editor (opts) {
 
-	this.content = this.root._innerHTML;
-	this.editor = null;
-	this.on('mount', function () {
-		var textarea = this.root.querySelectorAll('textarea');
-		this.editor = new MediumEditor(textarea);
-	});
+const ListView = riverian.component('list-view', {
+	render() {
+		return(
+			<h2>Koala</h2>
+		)
+	}
 });
 
-$(document).ready(function () {
-		riot.mount('*');
-});
+
+if (window.addEventListener) {
+  window.addEventListener('DOMContentLoaded', riverian.run);
+} else {
+  window.attachEvent('onload', riverian.run);
+}
+
 
 
 //
