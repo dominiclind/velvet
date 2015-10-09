@@ -32,7 +32,7 @@ module.exports = {
       {
         test: /\.js|\.tag$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel']
+        loaders: ['react-hot', 'babel?stage=1']
       }, {
         test: /\.html$/,
         loader: "html-loader"

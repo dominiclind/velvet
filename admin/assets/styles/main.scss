@@ -170,7 +170,7 @@ blog-app {
 
 /** responsive layout sizes */
 blog-app .list-view {
-	@include span(25%);
+	@include span(25% no-gutters);
 	position: fixed;
   min-height: 100%;
   background-color: #fff;
@@ -193,4 +193,10 @@ blog-app .list-view .list-item {
     bottom: 15px;
     font-size: 12px;
 	}
+}
+
+blog-app .editor-view {
+	@include span(75% no-gutters last);
+	position: fixed;
+	margin-left: 25%; // list view width
 }
